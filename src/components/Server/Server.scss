@@ -1,0 +1,170 @@
+@import '../../index.scss';
+
+.server-screen{
+    display: flex;
+    flex: 1;
+
+    .left{
+        width: 250px;
+        height: 100%;
+        background-color: $primary-dark-color;
+        position: relative;
+
+        .title{
+            width: 100%;
+            height: 60px;
+
+            border-bottom: 1px solid $border-color;
+            padding: 0 1rem;
+            cursor: pointer;
+            transition: background-color 0.25s;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            &:hover{
+                background-color: $primary-color;
+            }
+
+            h1{
+                font-size: 1.25rem;
+                color: $text-color;
+            }
+
+            svg{
+                width: 20px;
+                height: 20px;
+                fill: white;
+            }
+        }
+
+        .channels{
+            width: 100%;
+            height: calc(100% - 60px);
+            overflow-y: auto;
+            padding: 1rem .5rem;
+
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+
+            .channel{
+                width: 100%;
+                padding: 0.5rem 1rem;
+                cursor: pointer;
+                transition: background-color 0.25s;
+                border-radius: 8px;
+
+                display: flex;
+                align-items: center;
+
+                &.selected{
+                    background-color: $primary-color;
+                }
+
+                &:hover{
+                    background-color: $primary-color;
+                }
+
+                .name{
+                    font-size: 1.2rem;
+                    color: $text-color;
+
+                    &::before{
+                        content: '#';
+                        color: $text-light-color;
+                        margin-right: 8px;
+                    }
+                }
+            }
+        }
+    }
+
+    .chat{
+        flex: 1;
+
+        .messages{
+            height: calc(100% - 60px);
+            overflow-y: auto;
+            padding: 1rem 0;
+
+            display: flex;
+            flex-direction: column-reverse;
+
+            .message{
+                margin-bottom: 1rem;
+                padding: 0.5rem 1rem;
+                display: flex;
+                align-items: center;
+                height: fit-content;
+
+                &:hover{
+                    backdrop-filter: brightness(0.95);
+                }
+
+                .avatar{
+                    width: 50px;
+                    height: 50px;
+                    border-radius: 50%;
+                    background-color: $accent-color;
+
+                    img{
+                        width: 100%;
+                        height: 100%;
+                        border-radius: 50%;
+                    }
+                }
+
+                .content{
+                    margin-left: 1rem;
+
+                    .header{
+                        flex: 1;
+                        display: flex;
+                        align-items: center;
+                        gap: 1rem;
+    
+                        .name{
+                            font-size: 1rem;
+                            font-weight: bold;
+                            color: $text-color;
+                            user-select: text;
+                            cursor: default;
+                        }
+    
+                        .time{
+                            font-size: 0.75rem;
+                            color: $text-light-color;
+                            user-select: text;
+                            cursor: default;
+                        }
+                    }
+
+                    .text{
+                        font-size: 1rem;
+                        color: $text-color;
+                        user-select: text;
+                    }
+                }
+            }
+        }
+    }
+
+    .input{
+        width: 100%;
+        padding: 0 1rem;
+
+        input{
+            height: 100%;
+            width: 100%;
+            border-radius: 8px;
+            padding: 1rem;
+            border: none;
+            background-color: $primary-dark-color;
+            color: $text-color;
+            font-size: 1rem;
+            outline: none;
+        }
+    }
+}

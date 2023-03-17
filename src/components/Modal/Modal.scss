@@ -1,0 +1,155 @@
+@import '../../index.scss';
+
+.modal-background{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    .modal{
+        background-color: $tertiary-color;
+        min-width: 500px;
+        width: fit-content;
+        height: fit-content;
+        border-radius: 8px;
+        padding: 2rem;
+
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
+        position: relative;
+
+        .close-btn{
+            all: unset;
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background-color: transparent;
+            cursor: pointer;
+            padding: .8rem;
+            border-radius: 50%;
+            transition: background-color .25s;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            svg{
+                width: 1.5rem;
+                height: 1.5rem;
+                color: $text-color;
+            }
+
+            &:hover{
+                background-color: $secondary-color;
+            }
+
+            &:active{
+                background-color: $tertiary-color;
+            }
+        }
+
+        h1{
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .text-input{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: .5rem;
+
+            label{
+                font-size: 1rem;
+                font-weight: 500;
+                color: $text-color;
+            }
+
+            input{
+                all: unset;
+                background-color: $secondary-color;
+                border-radius: 8px;
+                padding: .5rem 1rem;
+                color: $text-color;
+                font-size: 1.2rem;
+                font-weight: 500;
+                flex: 1;
+            }
+        }
+
+        .btn{
+            all: unset;
+            background-color: $secondary-color;
+            border-radius: 8px;
+            padding: .5rem 1rem;
+            color: $text-color;
+            font-size: 1.2rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color .25s;
+            white-space: nowrap;
+
+            &:hover{
+                background-color: $primary-color;
+            }
+
+            &:active{
+                background-color: $secondary-color;
+            }
+
+            &.accent{
+                background-color: $secondary-color;
+                color: $text-color;
+
+                &:hover{
+                    background-color: $accent-color;;
+                }
+
+                &:active{
+                    background-color: $tertiary-color;
+                }
+            }
+
+            &.danger{
+                background-color: $secondary-color;
+                color: $text-color;
+
+                &:hover{
+                    background-color: $error-color;
+                }
+
+                &:active{
+                    background-color: $error-color;
+                }
+            }
+        }
+
+        .row{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .column{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+
+            &>*{
+                width: 100%;
+            }
+        }
+    }
+}

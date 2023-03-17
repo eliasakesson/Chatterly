@@ -1,0 +1,76 @@
+// Variables
+$primary-color: #3a3d3f; // Dark gray
+$primary-dark-color: #383a3b; // Even darker gray
+$secondary-color: #323436; // Darker gray
+$tertiary-color: #2e3033; // Even darker gray
+$accent-color: #7289da; // Discord blue
+$accent-light-color: #9bcaf6; // Lighter Discord blue
+$highlight-color: #ffffff; // White
+$foreground-color: #d9d9d9; // Light gray
+$error-color: #d14c4c; // Red
+
+$font-family: 'Segoe UI', Roboto, sans-serif;
+$title-font-size: 1.5rem;
+$body-font-size: 1rem;
+$heading-color: $highlight-color;
+$text-color: $foreground-color;
+$text-light-color: #b9bbbe;
+
+$border-color: #34363b;
+$border-radius: 5px;
+$box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+
+// Global styles
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: $font-family;
+  font-size: $body-font-size;
+  color: $text-color;
+  background-color: $primary-color;
+  height: 100%;
+}
+
+#root {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+*{
+  box-sizing: border-box;
+  user-select: none;
+  margin: 0;
+  padding: 0;
+}
+
+button {
+  font-family: $font-family;
+  font-size: $body-font-size;
+  cursor: pointer;
+  outline: none;
+}
+
+a {
+  color: $accent-color;
+  text-decoration: none;
+  transition: color 0.2s ease-in-out;
+
+  &:hover {
+    color: $accent-light-color;
+  }
+}
+
+.text {
+  margin: 0;
+  font-family: $font-family;
+  font-size: $body-font-size;
+  color: $text-color;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  font-family: $font-family;
+  font-size: $title-font-size;
+  color: $heading-color;
+}

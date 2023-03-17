@@ -1,0 +1,97 @@
+@import '../../index.scss';
+
+.login-container {
+    margin: auto;
+    padding: 20px;
+    width: 400px;
+    background-color: $secondary-color;
+    border: 1px solid $border-color;
+    border-radius: $border-radius;
+    
+    h1 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+  
+    form {
+        display: flex;
+        flex-direction: column;
+        
+        label {
+            margin-bottom: 10px;
+        }
+        
+        input {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid $border-color;
+            border-radius: $border-radius;
+            
+            &:focus {
+                outline: none;
+                border-color: $accent-color;
+            }
+        }
+        
+        .submit-button {
+            background-color: $accent-color;
+            color: $highlight-color;
+            border: none;
+            border-radius: $border-radius;
+            padding: 10px;
+            margin-top: 10px;
+            transition: background-color 0.2s ease-in-out;
+            
+            &:hover {
+                background-color: $accent-light-color;
+            }
+        }
+        
+    }
+
+    .divider{
+        display: flex;
+        align-items: center;
+        margin: 20px 0;
+        
+        hr {
+            flex: 1;
+            border: none;
+            border-top: 1px solid $primary-color;
+        }
+        
+        span {
+            margin: 0 10px;
+            color: $text-color;
+        }
+    }
+
+    .google-button {
+        background-color: #fff;
+        color: $tertiary-color;
+        border: 1px solid $border-color;
+        border-radius: $border-radius;
+        padding: .75rem;
+        width: 100%;
+        margin-top: 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background-color 0.2s ease-in-out;
+        font-weight: 600;
+        
+        img {
+            margin-right: 10px;
+            width: 20px;
+            height: 20px;
+        }
+    }
+
+    .navigate-btn {
+        margin-top: 20px;
+        text-align: center;
+        color: $text-color;
+        font-weight: 600;
+        cursor: pointer;
+    }
+}

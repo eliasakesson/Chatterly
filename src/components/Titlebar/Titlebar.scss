@@ -1,0 +1,107 @@
+@import "../../index.scss";
+
+.titlebar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 32px;
+    background-color: $tertiary-color;
+    -webkit-app-region: drag;
+  
+    .left {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        -webkit-app-region: no-drag;
+        
+        .logo {
+            margin-left: 6px;
+            margin-right: 6px;
+            width: 24px;
+            height: 24px;
+
+            img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+        
+        .buttons {
+            height: 100%;
+            display: flex;
+
+            .group{
+                position: relative;
+
+                .button {
+                    height: 100%;
+                    padding: 0 .5rem;
+                    background-color: transparent;
+                    border: none;
+                    color: $highlight-color;
+                    cursor: pointer;
+                    transition: background-color .25s;
+                    
+                    &:hover {
+                        background-color: $primary-color;
+                    }
+                }
+    
+                .dropdown {
+                    position: absolute;
+                    top: 30px;
+                    background-color: $tertiary-color;
+                    min-width: 120px;
+                    z-index: 1;
+                    padding: 4px;
+                    border-radius: 8px;
+                    display: none;
+                    
+                    .button {
+                        padding: .5rem;
+                        width: 100%;
+                        text-align: left;
+                        border-radius: 4px;
+                    }
+                }
+    
+                .button:hover + .dropdown,
+                .dropdown:hover {
+                    display: block;
+                }
+            }
+            
+        }
+    }
+  
+    .title {
+        flex: 1;
+        text-align: center;
+        font-weight: 600;
+    }
+    
+    .rightbuttons {
+        height: 100%;
+        display: flex;
+        -webkit-app-region: no-drag;
+        
+        .button {
+            height: 100%;
+            width: 40px;
+            background-color: transparent;
+            border: none;
+            color: white;
+            cursor: pointer;
+            transition: background-color .25s;
+            
+            &:hover {
+                background-color: $primary-color;
+            }
+
+            svg {
+                fill: white;
+            }
+        }
+    }
+}
