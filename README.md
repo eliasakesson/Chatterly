@@ -1,76 +1,38 @@
-# electron-vite-react
+# Chatterly
+Chatterly is a Discord clone made with Electron and Firestore. It is a messaging app that allows users to create servers, channels, and send messages to one another in real-time.
 
-[![awesome-vite](https://awesome.re/mentioned-badge.svg)](https://github.com/vitejs/awesome-vite)
-![GitHub stars](https://img.shields.io/github/stars/caoxiemeihao/vite-react-electron?color=fa6470)
-![GitHub issues](https://img.shields.io/github/issues/caoxiemeihao/vite-react-electron?color=d8b22d)
-![GitHub license](https://img.shields.io/github/license/caoxiemeihao/vite-react-electron)
-[![Required Node.JS >= 14.18.0 || >=16.0.0](https://img.shields.io/static/v1?label=node&message=14.18.0%20||%20%3E=16.0.0&logo=node.js&color=3f893e)](https://nodejs.org/about/releases)
+## Features
+- Create and join servers
+- Create and join channels within servers
+- Real-time messaging
+- User authentication
+- User profiles -- Coming soon
+- Server and channel management -- Coming soon
 
-English | [简体中文](README.zh-CN.md)
+## Installation
+To install Chatterly, follow these steps:
 
-## 👀 Overview
+1. Clone this repository or download the ZIP file.
+2. Install Node.js and npm.
+3. Install dependencies by running the following command in the root directory of the project:
+´´´ sh
+npm install
+´´´
+4. Create a Firebase project and enable Firestore.
+5. Copy the Firebase configuration keys to the src/firebase.js file.
+6. Start the app by running the following command:
+´´´ sql
+npm start
+´´´
+## Usage
+After starting the app, you will be prompted to sign in or create an account. Once you are logged in, you can create or join servers, create or join channels within servers, and send messages to other users in real-time.
 
-📦 Ready out of the box  
-🎯 Based on the official [template-react-ts](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts), project structure will be familiar to you  
-🌱 Easily extendable and customizable  
-💪 Supports Node.js API in the renderer process  
-🔩 Supports C/C++ native addons  
-🐞 Debugger configuration included  
-🖥 Easy to implement multiple windows  
+To manage servers and channels, click on the server name in the sidebar and select "Server Settings" or "Channel Settings." From there, you can edit the server or channel name, description, and other settings.
 
-## 🛫 Quick start
+To upload an avatar, click on your user profile picture in the top left corner of the app and select "Edit Profile." From there, you can upload a new avatar image.
 
-```sh
-npm create electron-vite
-```
+## Contributing
+If you would like to contribute to Chatterly, feel free to submit a pull request. Before doing so, please ensure that your code follows the established coding conventions and that any new features are thoroughly tested.
 
-![electron-vite-react.gif](/public/electron-vite-react.gif)
-
-## 🐞 Debug
-
-![electron-vite-react-debug.gif](/public/electron-vite-react-debug.gif)
-
-## 📂 Directory structure
-
-Familiar React application structure, just with `electron` folder on the top :wink:  
-*Files in this folder will be separated from your React application and built into `dist-electron`*  
-
-```tree
-├── electron                                 Electron-related code
-│   ├── main                                 Main-process source code
-│   └── preload                              Preload-scripts source code
-│
-├── release                                  Generated after production build, contains executables
-│   └── {version}
-│       ├── {os}-{os_arch}                   Contains unpacked application executable
-│       └── {app_name}_{version}.{ext}       Installer for the application
-│
-├── public                                   Static assets
-└── src                                      Renderer source code, your React application
-```
-
-## 🚨 Be aware
-
-This template integrates Node.js API to the renderer process by default. If you want to follow **Electron Security Concerns** you might want to disable this feature. You will have to expose needed API by yourself.  
-
-To get started, remove the option as shown below. This will [modify the Vite configuration and disable this feature](https://github.com/electron-vite/vite-plugin-electron-renderer#config-presets-opinionated).
-
-```diff
-# vite.config.ts
-
-export default {
-  plugins: [
-    ...
--   // Use Node.js API in the Renderer-process
--   renderer({
--     nodeIntegration: true,
--   }),
-    ...
-  ],
-}
-```
-
-## ❔ FAQ
-
-- [dependencies vs devDependencies](https://github.com/electron-vite/vite-plugin-electron-renderer#dependencies-vs-devdependencies)
-- [C/C++ addons, Node.js modules - Pre-Bundling](https://github.com/electron-vite/vite-plugin-electron-renderer#dependency-pre-bundling)
+## License
+Chatterly is licensed under the MIT license.
