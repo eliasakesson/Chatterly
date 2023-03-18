@@ -59,7 +59,7 @@ const CreateChannelModal = ({ closeDropdown } : { closeDropdown : () => void }) 
             return
         }
 
-        await addDoc(collection(db, "servers", serverID, "channels"), {
+        await addDoc(collection(db, "servers", serverID, "text-channels"), {
             name: channelName,
             timestamp: serverTimestamp()
         })

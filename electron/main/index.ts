@@ -2,6 +2,7 @@ import { app, BrowserWindow, shell, ipcMain } from 'electron'
 import { release } from 'node:os'
 import { join } from 'node:path'
 require('dotenv').config();
+require('update-electron-app')();
 
 // The built directory structure
 //

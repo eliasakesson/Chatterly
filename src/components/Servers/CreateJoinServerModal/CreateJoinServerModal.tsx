@@ -166,7 +166,7 @@ const CreateUserServerDocument = async (uid : string, serverID : string) => {
 }
 
 const CreateStarterChannel = async (serverID : string) => {
-    addDoc(collection(db, "servers", serverID, "channels"), {
+    addDoc(collection(db, "servers", serverID, "text-channels"), {
         name: "general",
         timestamp: serverTimestamp()
     })

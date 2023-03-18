@@ -77,6 +77,26 @@
                         margin-right: 8px;
                     }
                 }
+
+                .edit{
+                    all: unset;
+                    margin-left: auto;
+                    padding: .3rem;
+                    fill: $text-light-color;
+                    cursor: pointer;
+                    transition: fill 0.25s;
+
+                    display: flex;
+
+                    &:hover{
+                        fill: $text-color;
+                    }
+
+                    svg{
+                        width: 12px;
+                        height: 12px;
+                    }
+                }
             }
         }
     }
