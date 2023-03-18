@@ -1,5 +1,4 @@
-import './App.scss'
-import { Routes, Route, HashRouter, Link, useNavigate } from 'react-router-dom'
+import { Routes, Route, Link, useNavigate } from 'react-router-dom'
 
 import Dashboard from './screens/Dashboard'
 import Login from './screens/LoginSignup/Login'
