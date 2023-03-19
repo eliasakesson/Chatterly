@@ -14,8 +14,10 @@
     .server{
         position: relative;
         background-color: $tertiary-color;
-        width: 60px;
-        height: 60px;
+        min-width: 60px;
+        min-height: 60px;
+        max-width: 60px;
+        max-height: 60px;
         
         display: flex;
         align-items: center;
@@ -66,6 +68,7 @@
             border-radius: 0.5rem;
             pointer-events: none;
             transition: .1s;
+            z-index: 1;
 
             &::after{
                 content: '';

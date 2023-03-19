@@ -1,5 +1,6 @@
 // Variables
 $primary-color: #3a3d3f; // Dark gray
+$primary-light-color: #72767D; // Lighter gray
 $primary-dark-color: #383a3b; // Even darker gray
 $secondary-color: #323436; // Darker gray
 $tertiary-color: #2e3033; // Even darker gray
@@ -42,6 +43,25 @@ html, body {
   user-select: none;
   margin: 0;
   padding: 0;
+
+  &::-webkit-scrollbar {
+    width: 10px;
+  }
+    
+  &::-webkit-scrollbar-track {
+    background-color: $secondary-color;
+    border-radius: 0 0 10px 10px;
+  }
+    
+  &::-webkit-scrollbar-thumb {
+    background-color: $primary-light-color;
+    border-radius: 10px;
+    border: 3px solid $secondary-color;
+  }
+    
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: $text-light-color;
+  }
 }
 
 button {

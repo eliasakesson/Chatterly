@@ -9,7 +9,7 @@ import ServerDropdown from './ServerDropdown'
 import { DashboardContext } from '@/screens/Dashboard'
 import Modal from '../Modal'
 
-export const ServerContext = createContext({} as { channel : string, setChannel : (channel : string) => void })
+export const ServerContext = createContext({} as { channel : {name: string, id: string}, setChannel : (channel : {name: string, id: string}) => void })
 
 const Server = () => {
 
@@ -17,10 +17,10 @@ const Server = () => {
 
     if (!serverID) return null
 
-    const [channel, setChannel] = useState('')
+    const [channel, setChannel] = useState({name: '', id: ''})
 
     useEffect(() => {
-        setChannel('')
+        setChannel({name: '', id: ''})
     }, [serverID])
 
     const [server] = useDocumentData(
@@ -35,8 +35,8 @@ const Server = () => {
             <div className='server-screen'>
                 <ServerLeft name={server?.name} />
                 <div className="chat">
-                    <Messages channel={channel} />
-                    <MessageInput channel={channel} />
+                    <Messages />
+                    <MessageInput />
                 </div>
             </div>
         </ServerContext.Provider>
@@ -85,11 +85,12 @@ const Channels = () => {
     );
 
     useEffect(() => {
-        if (channels && channels.docs.length > 0 && !channel) setChannel(channels.docs[0].data().name)
+        if (channels && channels.docs.length > 0 && !channel.id) setChannel({name: channels.docs[0].data().name, id: channels.docs[0].id})
     }, [channels])
 
     return (
         <ul className='channels'>
+            <li className='header'>Text Channels</li>
             {channels?.docs.map((channel, index) => (
                 <Channel key={index} channel={channel.data().name} id={channel.id} />
             ))}
@@ -102,7 +103,7 @@ const Channel = ({ channel, id } : any) => {
     const { channel: currentChannel, setChannel } = useContext(ServerContext)
 
     return (
-        <li className={`channel ${channel === currentChannel ? "selected" : ""}`} onClick={() => setChannel(channel)}>
+        <li className={`channel ${channel === currentChannel ? "selected" : ""}`} onClick={() => setChannel({ name: channel, id })}>
             <span className='name'>{channel}</span>
             <EditChannel channel={channel} id={id} />
         </li>
@@ -131,7 +132,7 @@ const EditChannel = ({ channel, id } : any) => {
     const deleteChannel = async () => {
         await deleteDoc(doc(db, "servers", serverID, "text-channels", id))
         setEditChannelOpen(false)
-        if (channel === channelName) setChannel('')
+        if (channel === channelName) setChannel({name: '', id: ''})
     }
 
     return (
@@ -156,16 +157,17 @@ const EditChannel = ({ channel, id } : any) => {
     )
 }
 
-const Messages = ({ channel } : { channel : string}) => {
+const Messages = () => {
 
     const { serverID } = useContext(DashboardContext)
+    const { channel } = useContext(ServerContext)
 
     if (!serverID) return null
-    if (!channel) return null
+    if (!channel?.id) return null
 
     const [messages] = useCollectionData(
         query(
-            collection(db, 'servers', serverID, 'text-channels', channel, 'messages'),
+            collection(db, 'servers', serverID, 'text-channels', channel.id, 'messages'),
             orderBy('timestamp', 'desc')
         ),
         {
@@ -216,9 +218,10 @@ const GetTimeSince = (date: Date) => {
     return 'Just now'
 }
 
-const MessageInput = ({ channel } : { channel : string}) => {
+const MessageInput = () => {
 
     const { serverID } = useContext(DashboardContext)
+    const { channel } = useContext(ServerContext)
 
     if (!serverID) return null
     if (!channel) return null
@@ -240,7 +243,7 @@ const MessageInput = ({ channel } : { channel : string}) => {
 
         setMessage('')
 
-        await addDoc(collection(db, 'servers', serverID, 'text-channels', channel, 'messages'), {
+        await addDoc(collection(db, 'servers', serverID, 'text-channels', channel.id, 'messages'), {
             message,
             timestamp: serverTimestamp(),
             user: {
